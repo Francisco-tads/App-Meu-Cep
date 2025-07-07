@@ -49,12 +49,30 @@ export const Container = styled.div`
     background-color: #F2F2F2;
     width: 75%;
     border-radius: 10px;
+    padding: 20px;
     h2 {
       margin: 5px 0;
       font-size: 20px;
     }
     span {
       margin-bottom: 9px;
+    }
+    .mapButton {
+      background-color: #1e90ff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 15px;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        background-color: #0066cc;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
     }
   }
 `;

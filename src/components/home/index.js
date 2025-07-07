@@ -27,6 +27,13 @@ try{
    }
 }
 
+    function handleOpenMap(){
+        if(Object.keys(cep).length > 0){
+            const address = `${cep.logradouro}, ${cep.bairro}, ${cep.localidade} - ${cep.uf}`;
+            const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+            window.open(mapUrl, '_blank');
+        }
+    }
   return (
     <Container>
       <img alt="map" src={logoImg} className="navbar-img" />
@@ -39,6 +46,8 @@ try{
         placeholder="Digite o cep..." 
         value={input}
         onChange={(e)=> setInput(e.target.value)}
+        onClick={Object.keys(cep).length > 0 ? handleOpenMap : undefined}
+        style={{cursor: Object.keys(cep).length > 0 ? 'pointer' : 'text'}}
         />
         
         <button onClick={handleSearch}> 
@@ -54,6 +63,9 @@ try{
         <span>{cep.complemento}</span>
         <span>Bairro: {cep.bairro}</span>
         <span>{cep.localidade} - {cep.uf}</span>
+        <button className="mapButton" onClick={handleOpenMap}>
+          Ver no Mapa
+        </button>
         </div>
       )}
     </Container>
